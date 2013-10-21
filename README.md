@@ -35,3 +35,10 @@ git@heroku.com:foo-eebae.git
 Use the following code to set up your app for local development:
 
 git clone git@heroku.com:foo-eebae.git -o heroku
+
+
+
+## --------------------------------------------
+
+heroku addons:add heroku-postgresql
+Added heroku-postgresql:dev to peaceful-tor-4099 (Free). Attached as HEROKU_POSTGRESQL_COBALT_URL Database has been created and is available ! This database is empty. If upgrading, you can transfer ! data from another database with pgbackups:restore.

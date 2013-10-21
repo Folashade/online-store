@@ -1,4 +1,14 @@
-// 15-237 Homework 3 - Eebae Server
+var pg = require('pg');
+
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM your_table');
+
+  query.on('row', function(row) {
+    console.log(JSON.stringify(row));
+  });
+});
+
+
 
 var express = require("express"); // imports express
 var app = express();        // create a new instance of express
@@ -134,6 +144,7 @@ app.delete("/listings/:id", function(request, response){
 app.get("/static/:staticFilename", function (request, response) {
     response.sendfile("static/" + request.params.staticFilename);
 });
+
 
 function initServer() {
   // When we start the server, we must load the stored data
