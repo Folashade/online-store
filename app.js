@@ -145,4 +145,4 @@ function initServer() {
 
 // Finally, initialize the server, then activate the server at port 8889
 initServer();
-app.listen(8889);
+app.listen(process.env.PORT || 5000)
