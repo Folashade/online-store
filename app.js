@@ -1,5 +1,6 @@
 var pg = require('pg');   // for local
 
+console.log(process.env.DATABASE_URL);
 
 /** // FOR HEROKU SERVER  // **/
 /* use this when global are set & exported from the .bashrc */
