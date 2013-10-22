@@ -1,21 +1,21 @@
 var pg = require('pg');
 
-/** // FOR HEROKU SERVER  // **/
-var client = new pg.Client({
-	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
-	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
-	database: process.env.TODO_APP_DEV_DATABASE || 'cobalt',
-	host: process.env.TODO_APP_DEV_HOST || 'localhost',
-	port: process.env.TODO_APP_DEV_PORT || 5000
-})
-
-client.connect(process.env.DATABASE_URL, function(err, client) {
-  var query = client.query('SELECT * FROM surveys');
-
-  query.on('row', function(row) {
-    console.log(JSON.stringify(row));
-  });
-});
+// /** // FOR HEROKU SERVER  // **/
+// var client = new pg.Client({
+// 	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
+// 	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
+// 	database: process.env.TODO_APP_DEV_DATABASE || 'cobalt',
+// 	host: process.env.TODO_APP_DEV_HOST || 'localhost',
+// 	port: process.env.TODO_APP_DEV_PORT || 5000
+// })
+// 
+// client.connect(process.env.DATABASE_URL, function(err, client) {
+//   var query = client.query('SELECT * FROM surveys');
+// 
+//   query.on('row', function(row) {
+//     console.log(JSON.stringify(row));
+//   });
+// });
 
 
 /** // FOR LOCAL SERVER  // **/
@@ -23,6 +23,10 @@ client.connect(process.env.DATABASE_URL, function(err, client) {
 // var client = new pg.Client(conString);
 // client.connect();
 
+/** // FOR HEROKU SERVER  // **/
+var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
+var client = new pg.Client(conString);
+client.connect();
 
 /** // SETTING UP BACKEND // **/
 var express = require("express"); // imports express
