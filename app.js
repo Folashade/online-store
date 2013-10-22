@@ -2,11 +2,11 @@ var pg = require('pg');
 
 /** // FOR HEROKU SERVER  // **/
 var client = new pg.Client({
-	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
-	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
-	database: process.env.TODO_APP_DEV_DATABASE || 'cobalt',
-	host: process.env.TODO_APP_DEV_HOST || 'localhost',
-	port: process.env.TODO_APP_DEV_PORT || 5000
+	user: process.env.TODO_APP_DEV_USER,
+	password: process.env.TODO_APP_DEV_PASSWORD, 
+	database: process.env.TODO_APP_DEV_DATABASE,
+	host: process.env.TODO_APP_DEV_HOST,
+	port: process.env.TODO_APP_DEV_PORT
 })
 
 client.connect(process.env.DATABASE_URL, function(err, client) {
