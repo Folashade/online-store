@@ -11,11 +11,11 @@ var pg = require('pg');
 // })
 
 var client = new pg.Client({
-	user: mpeyvkpeoywcaj,
-	password: mQB_kCBkTaZCP-ct0OhCNl3zBO, 
-	database: d2d1mma7140cav,
-	host: ec2-54-225-102-116.compute-1.amazonaws.com,
-	port: 5432
+	user: process.env.'mpeyvkpeoywcaj',
+	password: process.env.'mQB_kCBkTaZCP-ct0OhCNl3zBO', 
+	database: process.env.'d2d1mma7140cav',
+	host: process.env.'ec2-54-225-102-116.compute-1.amazonaws.com',
+	port: process.env.5432
 })
 
 
