@@ -74,7 +74,7 @@ app.post("/listings", function(request, response) {
 
   if (successful) {
     listings.push(item);
-	INSERT INTO surveys VALUES (item.author, 4, item.desc);
+	// INSERT INTO surveys VALUES (item.author, 4, item.desc);
     writeFile("data.txt", JSON.stringify(listings));
   } else {
     item = undefined;
