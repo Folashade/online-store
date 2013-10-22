@@ -9,13 +9,24 @@ var client = new pg.Client({
 	port: process.env.TODO_APP_DEV_PORT
 })
 
-client.connect(process.env.DATABASE_URL, function(err, client) {
-  var query = client.query('SELECT * FROM surveys');
-
-  query.on('row', function(row) {
-    console.log(JSON.stringify(row));
+client.connect(process.env.DATABASE_URL, function(err, client, done) {
+  client.query('SELECT * FROM your_table', function(err, result) {
+    done();
+    if(err) return console.error(err);
+    console.log(result.rows);
   });
 });
+
+// client.connect();
+
+
+// client.connect(process.env.DATABASE_URL, function(err, client) {
+//   var query = client.query('SELECT * FROM surveys');
+// 
+//   query.on('row', function(row) {
+//     console.log(JSON.stringify(row));
+//   });
+// });
 
 
 /** // FOR LOCAL SERVER  // **/
@@ -105,7 +116,11 @@ app.post("/listings", function(request, response) {
 	
 	  console.log(' ----- inputted into db ----- ');
 	  /** Query the DB **/
-	  var query = client.query('SELECT * FROM surveys');
+	  var query = client.query('SELECT * FROM surveys', function(err, result) {
+          if (err) {
+              console.log(err);
+			}
+		});
 	  query.on('row', function(row) {
 	    console.log(JSON.stringify(row));
 	  });
