@@ -11,10 +11,10 @@ var pg = require('pg');
 // })
 
 var client = new pg.Client({
-	user: 'mpeyvkpeoywcaj',
-	password: 'mQB_kCBkTaZCP-ct0OhCNl3zBO', 
-	database: 'd2d1mma7140cav',
-	host: 'ec2-54-225-102-116.compute-1.amazonaws.com',
+	user: mpeyvkpeoywcaj,
+	password: mQB_kCBkTaZCP-ct0OhCNl3zBO, 
+	database: d2d1mma7140cav,
+	host: ec2-54-225-102-116.compute-1.amazonaws.com,
 	port: 5432
 })
 
