@@ -1,21 +1,25 @@
 var pg = require('pg');
 
-// /** // FOR HEROKU SERVER  // **/
-// var client = new pg.Client({
-// 	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
-// 	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
-// 	database: process.env.TODO_APP_DEV_DATABASE || 'cobalt',
-// 	host: process.env.TODO_APP_DEV_HOST || 'localhost',
-// 	port: process.env.TODO_APP_DEV_PORT || 5000
-// })
-// 
-// client.connect(process.env.DATABASE_URL, function(err, client) {
-//   var query = client.query('SELECT * FROM surveys');
-// 
-//   query.on('row', function(row) {
-//     console.log(JSON.stringify(row));
-//   });
-// });
+/** // FOR HEROKU SERVER  // 
+var client = new pg.Client({
+	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
+	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
+	database: process.env.TODO_APP_DEV_DATABASE || 'cobalt',
+	host: process.env.TODO_APP_DEV_HOST || 'localhost',
+	port: process.env.TODO_APP_DEV_PORT || 5000
+})
+
+client.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM surveys');
+
+  query.on('row', function(row) {
+    console.log(JSON.stringify(row));
+  });
+});
+
+// not working  **/
+
+
 
 
 /** // FOR LOCAL SERVER  // **/
