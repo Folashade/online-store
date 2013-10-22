@@ -11,20 +11,20 @@ var client = new pg.Client({
   port: process.env.MAKE_TOOL_ONE_PORT
 });
 
-console.log(pg);
-console.log(process.env.MAKE_TOOL_ONE_DEV_USER);
-console.log(process.env.DATABASE_URL);
+// console.log(pg);
+// console.log(process.env.MAKE_TOOL_ONE_DEV_USER);
+// console.log(process.env.DATABASE_URL);
 
 
-client.connect(process.env.DATABASE_URL, function(err, client, done) {
-  client.query('SELECT * FROM surveys', function(err, result) {
-    done();
-    if(err) return console.error(err);
-    console.log(result.rows);
-  });
-});
+// client.connect(process.env.DATABASE_URL, function(err, client, done) {
+//   client.query('SELECT * FROM surveys', function(err, result) {
+//     done();
+//     if(err) return console.error(err);
+//     console.log(result.rows);
+//   });
+// });
 
-// client.connect();
+client.connect();
 
 
 // client.connect(process.env.DATABASE_URL, function(err, client) {
