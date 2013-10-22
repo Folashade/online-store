@@ -1,9 +1,3 @@
-// ### Heroku Postgres Details                                                                                                                                    
-MAKE_TOOL_ONE_HOST=ec2-54-225-102-116.compute-1.amazonaws.com
-MAKE_TOOL_ONE_DATABASE=d2d1mma7140cav
-MAKE_TOOL_ONE_DEV_USER=mpeyvkpeoywcaj
-MAKE_TOOL_ONE_PORT=5432
-MAKE_TOOL_ONE_PASSWORD=mQB_kCBkTaZCP-ct0OhCNl3zBO
 
 var pg = require('pg');
 
