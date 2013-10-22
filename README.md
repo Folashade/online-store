@@ -42,3 +42,15 @@ git clone git@heroku.com:foo-eebae.git -o heroku
 
 heroku addons:add heroku-postgresql
 Added heroku-postgresql:dev to peaceful-tor-4099 (Free). Attached as HEROKU_POSTGRESQL_COBALT_URL Database has been created and is available ! This database is empty. If upgrading, you can transfer ! data from another database with pgbackups:restore.
+
+## --------------------------------------------
+heroku addons:add pgbackups
+
+
+--- the file was saved to latest.dump inthe current dir
+- psql dbname < infile  
+		= psql cobalt < latest.dump
+		
+		pg_restore --verbose --clean --no-acl --no-owner -h myhost -U myuser -d mydb latest.dump
+		pg_restore --verbose --clean --no-acl --no-owner -h myhost -U 'FOkunubi' -d cobalt latest.dump
+				pg_restore --verbose --clean --no-acl --no-owner -U 'FOkunubi' -d cobalt latest.dump

@@ -66,7 +66,7 @@ app.post("/listings", function(request, response) {
               "date": new Date(),
               "price": Number(request.body.price),
               "sold": false };
-
+ 
   var successful = 
       (item.desc !== undefined) &&
       (item.author !== undefined) &&
@@ -74,6 +74,7 @@ app.post("/listings", function(request, response) {
 
   if (successful) {
     listings.push(item);
+	INSERT INTO surveys VALUES (item.author, 4, item.desc);
     writeFile("data.txt", JSON.stringify(listings));
   } else {
     item = undefined;

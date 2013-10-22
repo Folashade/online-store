@@ -18,3 +18,11 @@ var client = new pg.Client({
 	database: process.env.TODO_APP_DEV_DATABASE
 })
 
+client.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM your_table');
+
+  query.on('row', function(row) {
+    console.log(JSON.stringify(row));
+  });
+});
+
