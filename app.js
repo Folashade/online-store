@@ -1,7 +1,30 @@
+var pg = require('pg');
+
+/** // FOR HEROKU SERVER  // **/
+var client = new pg.Client({
+	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
+	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
+	database: process.env.TODO_APP_DEV_DATABASE || 'cobalt',
+	host: process.env.TODO_APP_DEV_HOST || 'localhost',
+	port: process.env.TODO_APP_DEV_PORT || 5000
+})
+
+client.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM surveys');
+
+  query.on('row', function(row) {
+    console.log(JSON.stringify(row));
+  });
+});
 
 
+/** // FOR LOCAL SERVER  // **/
+// var conString = "postgres://FOkunubi:folashade@localhost/cobalt";
+// var client = new pg.Client(conString);
+// client.connect();
 
 
+/** // SETTING UP BACKEND // **/
 var express = require("express"); // imports express
 var app = express();        // create a new instance of express
 
@@ -74,7 +97,20 @@ app.post("/listings", function(request, response) {
 
   if (successful) {
     listings.push(item);
-	// INSERT INTO surveys VALUES (item.author, 4, item.desc);
+	// client.query(
+		
+	// INSERT INTO surveys VALUES (item.author, Math.floor(), item.desc);
+	  var price_int = Math.floor(item.price);
+	  client.query('INSERT INTO surveys VALUES ($1, $2, $3)',[item.author, price_int, item.desc]);
+	
+	  console.log(' ----- inputted into db ----- ');
+	  /** Query the DB **/
+	  var query = client.query('SELECT * FROM surveys');
+	  query.on('row', function(row) {
+	    console.log(JSON.stringify(row));
+	  });
+
+	
     writeFile("data.txt", JSON.stringify(listings));
   } else {
     item = undefined;

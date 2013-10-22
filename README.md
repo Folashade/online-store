@@ -60,3 +60,11 @@ heroku addons:add pgbackups
 ## --------------------------------------------
 				
 https://github.com/brianc/node-postgres/wiki/pg
+
+
+## --------------------------------------------
+
+http://stackoverflow.com/questions/10632801/how-to-find-the-url-path-to-a-local-postgres-database
+postgres URL
+postgres://username:password@host/database
+postgres://'FOkunubi':'folashad3'@localhost/cobalt
