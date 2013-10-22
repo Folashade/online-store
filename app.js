@@ -4,11 +4,11 @@ var pg = require('pg');
 /** // FOR HEROKU SERVER  // **/
 /* use this when global are set & exported from the .bashrc */
 var client = new pg.Client({
-	user: process.env.MAKE_TOOL_ONE_DEV_USER,
-	password: process.env.MAKE_TOOL_ONE_DEV_PASSWORD, 
-	database: process.env.MAKE_TOOL_ONE_DEV_DATABASE,
-	host: process.env.MAKE_TOOL_ONE_DEV_HOST,
-	port: process.env.MAKE_TOOL_ONE_DEV_PORT
+	user: process.env.MAKE_TOOL_ONE_USER,
+	password: process.env.MAKE_TOOL_ONE_PASSWORD, 
+	database: process.env.MAKE_TOOL_ONE_DATABASE,
+	host: process.env.MAKE_TOOL_ONE_HOST,
+	port: process.env.MAKE_TOOL_ONE_PORT
 })
 
 console.log(pg);
