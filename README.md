@@ -27,6 +27,11 @@ return query and slice math
 
 
 ## --------------------------------------------
+
+https://devcenter.heroku.com/articles/getting-started-with-nodejs
+
+
+
 Your app, foo-eebae, has been created.
 App URL:
 http://foo-eebae.herokuapp.com/
@@ -68,3 +73,9 @@ http://stackoverflow.com/questions/10632801/how-to-find-the-url-path-to-a-local-
 postgres URL
 postgres://username:password@host/database
 postgres://'FOkunubi':'folashad3'@localhost/cobalt
+
+## --------------------------------------------
+https://devcenter.heroku.com/articles/heroku-postgresql
+
+
+heroku pg:promote HEROKU_POSTGRESQL_COBALT_URL

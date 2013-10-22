@@ -1,13 +1,23 @@
 var pg = require('pg');
 
 /** // FOR HEROKU SERVER  // **/
+/* use this when global are set & exported from the .bashrc */
+// var client = new pg.Client({
+// 	user: process.env.TODO_APP_DEV_USER,
+// 	password: process.env.TODO_APP_DEV_PASSWORD, 
+// 	database: process.env.TODO_APP_DEV_DATABASE,
+// 	host: process.env.TODO_APP_DEV_HOST,
+// 	port: process.env.TODO_APP_DEV_PORT
+// })
+
 var client = new pg.Client({
-	user: process.env.TODO_APP_DEV_USER,
-	password: process.env.TODO_APP_DEV_PASSWORD, 
-	database: process.env.TODO_APP_DEV_DATABASE,
-	host: process.env.TODO_APP_DEV_HOST,
-	port: process.env.TODO_APP_DEV_PORT
+	user: 'mpeyvkpeoywcaj',
+	password: 'mQB_kCBkTaZCP-ct0OhCNl3zBO', 
+	database: 'd2d1mma7140cav',
+	host: 'ec2-54-225-102-116.compute-1.amazonaws.com',
+	port: 5432
 })
+
 
 client.connect(process.env.DATABASE_URL, function(err, client, done) {
   client.query('SELECT * FROM your_table', function(err, result) {
