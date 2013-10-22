@@ -1,22 +1,23 @@
+// ### Heroku Postgres Details                                                                                                                                    
+MAKE_TOOL_ONE_HOST=ec2-54-225-102-116.compute-1.amazonaws.com
+MAKE_TOOL_ONE_DATABASE=d2d1mma7140cav
+MAKE_TOOL_ONE_DEV_USER=mpeyvkpeoywcaj
+MAKE_TOOL_ONE_PORT=5432
+MAKE_TOOL_ONE_PASSWORD=mQB_kCBkTaZCP-ct0OhCNl3zBO
+
 var pg = require('pg');
 
 /** // FOR HEROKU SERVER  // **/
 /* use this when global are set & exported from the .bashrc */
-// var client = new pg.Client({
-// 	user: process.env.TODO_APP_DEV_USER,
-// 	password: process.env.TODO_APP_DEV_PASSWORD, 
-// 	database: process.env.TODO_APP_DEV_DATABASE,
-// 	host: process.env.TODO_APP_DEV_HOST,
-// 	port: process.env.TODO_APP_DEV_PORT
-// })
-
 var client = new pg.Client({
-	user: 'process.env.mpeyvkpeoywcaj',
-	password: 'process.env.mQB_kCBkTaZCP-ct0OhCNl3zBO', 
-	database: 'process.env.d2d1mma7140cav',
-	host: 'process.env.ec2-54-225-102-116.compute-1.amazonaws.com',
-	port: 'process.env.5432'
+	user: process.env.MAKE_TOOL_ONE_DEV_USER,
+	password: process.env.MAKE_TOOL_ONE_DEV_PASSWORD, 
+	database: process.env.MAKE_TOOL_ONE_DEV_DATABASE,
+	host: process.env.MAKE_TOOL_ONE_DEV_HOST,
+	port: process.env.MAKE_TOOL_ONE_DEV_PORT
 })
+
+
 
 
 client.connect(process.env.DATABASE_URL, function(err, client, done) {
