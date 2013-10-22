@@ -1,32 +1,30 @@
-
 var pg = require('pg');   // for local
-// var pg = require('pg').native;  //for heroku
 
 
 /** // FOR HEROKU SERVER  // **/
 /* use this when global are set & exported from the .bashrc */
-var client = new pg.Client({
-  user: process.env.MAKE_TOOL_ONE_USER,
-  password: process.env.MAKE_TOOL_ONE_PASSWORD, 
-  database: process.env.MAKE_TOOL_ONE_DATABASE,
-  host: process.env.MAKE_TOOL_ONE_HOST,
-  port: process.env.MAKE_TOOL_ONE_PORT
-});
-
-console.log(pg);
-console.log(process.env.MAKE_TOOL_ONE_DEV_USER);
-console.log(process.env.DATABASE_URL);
-
-
-// client.connect(process.env.DATABASE_URL, function(err, client, done) {
-//   client.query('SELECT * FROM surveys', function(err, result) {
-//     done();
-//     if(err) return console.error(err);
-//     console.log(result.rows);
-//   });
+// var client = new pg.Client({
+//   user: process.env.MAKE_TOOL_ONE_USER,
+//   password: process.env.MAKE_TOOL_ONE_PASSWORD, 
+//   database: process.env.MAKE_TOOL_ONE_DATABASE,
+//   host: process.env.MAKE_TOOL_ONE_HOST,
+//   port: process.env.MAKE_TOOL_ONE_PORT
 // });
 
-client.connect();
+// console.log(pg);
+// console.log(process.env.MAKE_TOOL_ONE_DEV_USER);
+// console.log(process.env.DATABASE_URL);
+
+
+pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  client.query('SELECT * FROM surveys', function(err, result) {
+    done();
+    if(err) return console.error(err);
+    console.log(result.rows);
+  });
+});
+
+// client.connect();
 
 
 // client.connect(process.env.DATABASE_URL, function(err, client) {
