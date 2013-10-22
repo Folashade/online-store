@@ -1,5 +1,7 @@
 
-var pg = require('pg');
+// var pg = require('pg');   // for local
+var pg = require('pg').native;  //for heroku
+
 
 /** // FOR HEROKU SERVER  // **/
 /* use this when global are set & exported from the .bashrc */
