@@ -50,3 +50,10 @@ pg.connect(dbUrl, function(err, client, done) {
     }
 });
 */
+
+### Heroku Postgres Details                                                                                                                                    
+export MAKE_TOOL_ONE_HOST=ec2-54-225-102-116.compute-1.amazonaws.com
+export MAKE_TOOL_ONE_DATABASE=d2d1mma7140cav
+export MAKE_TOOL_ONE_USER=mpeyvkpeoywcaj
+export MAKE_TOOL_ONE_PORT=5432
+export MAKE_TOOL_ONE_PASSWORD=mQB_kCBkTaZCP-ct0OhCNl3zBO

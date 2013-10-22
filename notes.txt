@@ -45,3 +45,14 @@ CREATE TABLE surveys (
 
 INSERT INTO surveys VALUES
     ('FirstName LastName', 1, ' This is an example sentence. {(JSON:OBject)} ');
+
+---------------------------------------------------------------------------------------------------
+ALTER DATABASE name RENAME TO "make-tool-one";
+
+# 
+# ## Heroku Postgres Details                                                                                                                                    
+# export CHAKRA_DEV_HOST=ec2-******.compute-1.amazonaws.com                                                                                               
+# export CHAKRA_DEV_DATABASE=df2cokjfj0k4vu                                                                                                                      
+# export CHAKRA_DEV_USER=zgwgf****rhyn                                                                                                                          
+# export CHAKRA_DEV_PORT=5432                                                                                                                                    
+# export CHAKRA_DEV_PASSWORD=JAImDWqN****4k7VOhUpLmbn
