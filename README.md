@@ -1,5 +1,5 @@
-Homework 3 - FOO
-========
+This is a copy of an older hw to continue work on the node app make tool for design. Finally got the heroku to connect in this one.
+And I think the db too.. 
 
 ## Process
 + 
