@@ -16,7 +16,6 @@
 + How to start...? 
   - npm install
 	- node app
-+ 
 
 ### Problems
 + None known atm
