@@ -1,39 +1,5 @@
-var pg = require('pg');
-
-/** // FOR HEROKU SERVER  // 
-var client = new pg.Client({
-	user: process.env.TODO_APP_DEV_USER || 'FOkunubi',
-	password: process.env.TODO_APP_DEV_PASSWORD || 'folashad3', 
-	database: process.env.TODO_APP_DEV_DATABASE || 'cobalt',
-	host: process.env.TODO_APP_DEV_HOST || 'localhost',
-	port: process.env.TODO_APP_DEV_PORT || 5000
-})
-
-client.connect(process.env.DATABASE_URL, function(err, client) {
-  var query = client.query('SELECT * FROM surveys');
-
-  query.on('row', function(row) {
-    console.log(JSON.stringify(row));
-  });
-});
-
-// not working  **/
-
-
-
-
-
-/** // FOR LOCAL SERVER  // **/
-var conString = "postgres://FOkunubi:folashade@localhost/cobalt";
-var client = new pg.Client(conString);
-client.connect();
-
-/** // FOR HEROKU SERVER  // **/
-// var conString = "postgres://mpeyvkpeoywcaj:mQB_kCBkTaZCP-ct0OhCNl3zBO@ec2-54-225-102-116.compute-1.amazonaws.com:5432/d2d1mma7140cav";
-// var client = new pg.Client(conString);
-// client.connect();
-
 /** // SETTING UP BACKEND // **/
+
 var express = require("express"); // imports express
 var app = express();        // create a new instance of express
 
@@ -45,6 +11,8 @@ var path = require("path");
 // body of a request
 app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, 'static')));
+  // ^ this line makes it so that instead of doing localhost:5000/static/index.html
+  //   i can just type localhost:5000
 
 // The global datastore for this example
 var listings;
@@ -100,7 +68,7 @@ app.post("/listings", function(request, response) {
               "date": new Date(),
               "price": Number(request.body.price),
               "sold": false };
- 
+
   var successful = 
       (item.desc !== undefined) &&
       (item.author !== undefined) &&
@@ -108,20 +76,6 @@ app.post("/listings", function(request, response) {
 
   if (successful) {
     listings.push(item);
-	// client.query(
-		
-	// INSERT INTO surveys VALUES (item.author, Math.floor(), item.desc);
-	  var price_int = Math.floor(item.price);
-	  client.query('INSERT INTO surveys VALUES ($1, $2, $3)',[item.author, price_int, item.desc]);
-	
-	  console.log(' ----- inputted into db ----- ');
-	  /** Query the DB **/
-	  var query = client.query('SELECT * FROM surveys');
-	  query.on('row', function(row) {
-	    console.log(JSON.stringify(row));
-	  });
-
-	
     writeFile("data.txt", JSON.stringify(listings));
   } else {
     item = undefined;
@@ -185,7 +139,6 @@ app.get("/static/:staticFilename", function (request, response) {
     response.sendfile("static/" + request.params.staticFilename);
 });
 
-
 function initServer() {
   // When we start the server, we must load the stored data
   var defaultList = "[]";
@@ -196,4 +149,11 @@ function initServer() {
 
 // Finally, initialize the server, then activate the server at port 8889
 initServer();
-app.listen(process.env.PORT || 5000)
+app.listen(5555);
+
+
+/************* auto open window *************/
+setTimeout(function() {
+ var spawn = require('child_process').spawn
+ spawn('open', ['http://localhost:5555']);
+}, 500);
