@@ -3,7 +3,7 @@
   // ------------
   
   // Debugging - console.logs run only when true
-  debug = false;
+  debug = true;
 
   // Print function
   var print = function(input){
@@ -70,7 +70,7 @@
 		delButton.click(function(){
 			var buttonClicked = $(this);
 			var buttonID = buttonClicked.attr("id");
-			print("delete");
+			print("delete item");
 			listings.splice(buttonID, 1);
 			window.del(buttonID);
 			refreshDOM();
@@ -84,10 +84,13 @@
 			var buttonID = buttonClicked.attr("id");
 
 			buttonClicked.parent().addClass("sold");
+			print(' buttonClicked');
+			print(buttonClicked);
+			print(buttonID + 'buttonID');
 			listings[buttonID].sold = true;//!(listings[buttonID].sold);
 			
 			/* edit(id, desc, author, price, sold) */
-			window.edit(buttonID, l.desc, l.author, undefined, true );
+			window.edit(buttonID, buttonClicked.desc, buttonClicked.author, undefined, true );
 			// refreshDOM();
 		});
 		
@@ -95,6 +98,7 @@
 		
 		
 		$(".listings").append(listItem);
+		console.log(listings);
 	}
   }  
   
